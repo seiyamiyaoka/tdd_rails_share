@@ -8,7 +8,7 @@ describe VendingMachine do
     end
     it '烏龍茶ででてくる' do
       vending_machine.insert(100)
-      expect(vending_machine.select('ウーロン茶')).to eq 'ウーロン茶' 
+      expect(vending_machine.select('ウーロン茶')).to eq 'ウーロン茶'
     end
 
     context 'お金がないとき' do
