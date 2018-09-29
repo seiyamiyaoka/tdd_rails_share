@@ -2,7 +2,8 @@ class VendingMachine
   attr_reader :coin
 
   def select
-    'coke'
+    return 'coke' if @coin
+    'コインをいれてね'
   end
 
   def insert(coin)
