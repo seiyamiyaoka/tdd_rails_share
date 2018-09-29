@@ -29,7 +29,7 @@ class VendingMachine
     end
   end
 
-  def coin
+  def total_value
     sum = 0
     @coins.each { |coin| sum += coin.value }
     sum

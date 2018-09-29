@@ -30,11 +30,11 @@ describe VendingMachine do
     end
   end
 
-  describe 'coin' do
+  describe 'total_value' do
     it 'コインが入る' do
       coin = Coin.new(100)
       vending_machine.insert(coin)
-      expect(vending_machine.coin).to eq 100
+      expect(vending_machine.total_value).to eq 100
     end
   end
 end
