@@ -40,3 +40,29 @@ describe VendingMachine do
     end
   end
 end
+
+class Coin
+  attr_reader :value
+
+  def initialize(value)
+    @value = value
+  end
+
+  def valid?
+    [500, 100, 50, 10].include?(value)
+  end
+end
+
+describe Coin do
+  it '有効なコインであること' do
+    expect(Coin.new(500).valid?).to eq true
+    expect(Coin.new(100).valid?).to eq true
+    expect(Coin.new(50).valid?).to eq true
+    expect(Coin.new(10).valid?).to eq true
+  end
+
+  it '無効なコインであること' do
+    expect(Coin.new(1000).valid?).to eq false
+    expect(Coin.new(5).valid?).to eq false
+  end
+end
