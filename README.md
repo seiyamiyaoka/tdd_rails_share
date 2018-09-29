@@ -46,3 +46,11 @@ growl: http://growl.info/
 
 #### 他Unix系(Linux, FreeBSD, OpenBSD and Solaris)
 libnotify: https://developer.gnome.org/libnotify/
+
+
+### how to
+#### run spec
+- be rspec 
+#### run guard
+- guard
+
