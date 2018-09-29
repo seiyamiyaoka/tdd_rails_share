@@ -1,15 +1,15 @@
 describe VendingMachine do
+  let(:vending_machine) { VendingMachine.new }
+
   describe 'select' do
     it 'コーラが出てくる' do
-      vm = VendingMachine.new
-      expect(vm.select).to eq 'coke'
+      expect(vending_machine.select).to eq 'coke'
     end
   end
   describe 'coin' do
     it 'コインが入る' do
-      vm = VendingMachine.new
-      vm.insert(100)
-      expect(vm.coin).to eq 100
+      vending_machine.insert(100)
+      expect(vending_machine.coin).to eq 100
     end
   end
 end
