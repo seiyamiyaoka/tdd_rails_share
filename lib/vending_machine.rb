@@ -7,7 +7,11 @@ class VendingMachine
   end
 
   def insert(coin)
-    @coin = coin
+    if coin == 100
+      @coin = coin
+    else
+      nil
+    end
   end
 
   def coin
