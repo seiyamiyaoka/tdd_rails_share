@@ -3,16 +3,19 @@ describe VendingMachine do
 
   describe 'select' do
     it 'コーラが出てくる' do
-      vending_machine.insert(100)
+      coin = Coin.new(100)
+      vending_machine.insert(coin)
       expect(vending_machine.select('coke')).to eq 'coke'
     end
     it '烏龍茶ででてくる' do
-      vending_machine.insert(100)
+      coin = Coin.new(100)
+      vending_machine.insert(coin)
       expect(vending_machine.select('ウーロン茶')).to eq 'ウーロン茶'
     end
 
     context 'お金がないとき' do
       it 'コインをいれてねと表示される' do
+        vending_machine.insert(Coin.new(5))
         expect(vending_machine.select('coke')).to eq 'コインをいれてね'
       end
     end
@@ -21,35 +24,18 @@ describe VendingMachine do
   describe '#insert' do
     context '100を投入する場合' do
       it 'coinに100が入っていること' do
-        vending_machine.insert(100)
-        expect(vending_machine.coin).to eq(100)
-      end
-    end
-    context '100以外を投入する場合' do
-      it 'coinがnilであること' do
-        vending_machine.insert(500)
-        expect(vending_machine.coin).to eq(nil)
+        coin = Coin.new(100)
+        expect(vending_machine.insert(coin)).to eq([coin])
       end
     end
   end
 
   describe 'coin' do
     it 'コインが入る' do
-      vending_machine.insert(100)
+      coin = Coin.new(100)
+      vending_machine.insert(coin)
       expect(vending_machine.coin).to eq 100
     end
-  end
-end
-
-class Coin
-  attr_reader :value
-
-  def initialize(value)
-    @value = value
-  end
-
-  def valid?
-    [500, 100, 50, 10].include?(value)
   end
 end
 
